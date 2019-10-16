@@ -1,0 +1,16 @@
+bin
+obj
+exe
+*.GhostDoc.xml
+*.user
+*.suo
+.nuget
+.vs
+
+
+**/TestResults/
+
+**/*.dbmdl
+**/*.jfm
+**/logs/
+start.log

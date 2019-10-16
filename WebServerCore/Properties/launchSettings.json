@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "WebServerCore": {
+      "commandName": "Project",
+      "commandLineArgs": "-r game,chat -p 13684 -n 1",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

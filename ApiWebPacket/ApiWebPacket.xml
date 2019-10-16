@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApiWebPacket</name>
+    </assembly>
+    <members>
+        <member name="T:ApiWebPacket.Apis.ReqExamplePacket">
+            <summary>
+            요청 응답 패킷
+            </summary>
+        </member>
+        <member name="F:ApiWebPacket.Apis.ReqExamplePacket.memberVariable">
+            <summary>
+            맴버 변수
+            </summary>
+        </member>
+        <member name="F:ApiWebPacket.Apis.ReqExamplePacket.memberList">
+            <summary>
+            List 객체
+            </summary>
+        </member>
+        <member name="F:ApiWebPacket.Apis.ReqExamplePacket.memberDictionary">
+            <summary>
+            Dictionary 객체
+            </summary>
+        </member>
+        <member name="P:ApiWebPacket.Apis.ReqExamplePacket.PropertiesVariable">
+            <summary>
+            프로퍼티 변수
+            </summary>
+        </member>
+        <member name="P:ApiWebPacket.Apis.ReqExamplePacket.ExampleEntity">
+            <summary>
+            Class 객체
+            </summary>
+        </member>
+        <member name="T:ApiWebPacket.Apis.ResExamplePacket">
+            <summary>
+            응답 예제 패킷
+            </summary>
+        </member>
+        <member name="P:ApiWebPacket.Apis.ResExamplePacket.ErrorCode">
+            <summary>
+            에러 코드
+            </summary>
+        </member>
+        <member name="T:ApiWebPacket.Apis.ExamplePacket">
+            <summary>
+            예제 패킷
+            </summary>
+        </member>
+        <member name="F:ApiWebPacket.Apis.ExamplePacket.Path">
+            <summary>
+            패킷 Url 주소
+            </summary>
+        </member>
+        <member name="T:ApiWebPacket.Core.WebPacket`2">
+            <summary>
+            패킷 공통 포멧 클래스
+            </summary>
+            <typeparam name="Request">요청 Body</typeparam>
+            <typeparam name="Response">응답 Body</typeparam>
+        </member>
+        <member name="P:ApiWebPacket.Core.WebPacket`2.ReqData">
+            <summary>
+            요청 데이터
+            </summary>
+        </member>
+        <member name="P:ApiWebPacket.Core.WebPacket`2.ResData">
+            <summary>
+            응답 데이터
+            </summary>
+        </member>
+        <member name="T:ApiWebPacket.Entity.ExampleEntity">
+            <summary>
+            예제 Entity
+            </summary>
+        </member>
+        <member name="P:ApiWebPacket.Entity.ExampleEntity.SampleData">
+            <summary>
+            Sample data
+            </summary>
+        </member>
+        <member name="P:ApiWebPacket.Entity.ExampleEntity.Sample2Data">
+            <summary>
+            Sample data2
+            </summary>
+        </member>
+    </members>
+</doc>
