@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ApiWebServer.Models
+namespace ApiServer.Models
 {
     /// <summary>
     /// 테스트용 계정 정보

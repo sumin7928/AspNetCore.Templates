@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ApiWebServer.Core.Swagger;
-using ApiWebServer.Core.Middleware;
-using ApiWebServer.Core.Cache;
+using ApiServer.Core.Swagger;
+using ApiServer.Core.Middleware;
+using ApiServer.Core.Cache;
 
-namespace ApiWebServer
+namespace ApiServer
 {
     public class Startup
     {
@@ -45,6 +45,7 @@ namespace ApiWebServer
 
             // Register Redis
             services.AddRedis(Configuration);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,7 +67,7 @@ namespace ApiWebServer
             {
                 // api controller exception handler processing
             });
-
+            
             app.UseMvc();
         }
     }

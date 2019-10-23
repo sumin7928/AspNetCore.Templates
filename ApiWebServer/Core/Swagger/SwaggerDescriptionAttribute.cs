@@ -1,4 +1,4 @@
-using ApiWebServer.Core.Swagger.Docs;
+using ApiServer.Core.Swagger.Docs;
 using Swashbuckle.AspNetCore.Annotations;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Xml.Linq;
 
-namespace ApiWebServer.Core.Swagger
+namespace ApiServer.Core.Swagger
 {
     public class SwaggerDescriptionAttribute : SwaggerOperationAttribute
     {

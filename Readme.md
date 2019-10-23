@@ -1,13 +1,10 @@
-# Magu GameServer Documents
-마구 감독판 게임 서버 문서 정리.
+# ASP.Net Core Templates
+
+asp.net core와 관련된 프로젝트들을 바로 개발에 적용할 수 있게 템플릿 형대로 제공
 
 ## Documents
 
-#### WebServerCore
+#### ApiServer
 
-  - 웹 서버 문서 : [WebServer](WebServerCore/README.md)
-  - 웹 서버 As-is -> To-be 문서 : [Improved Feature](WebServerCore/IMPROVED_INFO.md) 
+#### SignalRServer
 
-#### WebServerLib
-
-  - 공유 라이브러리 문서 : [WebSharedLib](WebSharedLib/README.md)

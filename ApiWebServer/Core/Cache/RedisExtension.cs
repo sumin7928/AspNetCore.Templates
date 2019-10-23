@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using StackExchange.Redis.Extensions.Core.Configuration;
 using StackExchange.Redis.Extensions.Newtonsoft;
 
-namespace ApiWebServer.Core.Cache
+namespace ApiServer.Core.Cache
 {
     public static class RedisExtension
     {

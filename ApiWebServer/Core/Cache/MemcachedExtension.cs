@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ApiWebServer.Core.Cache
+namespace ApiServer.Core.Cache
 {
     public static class MemcachedExtension
     {

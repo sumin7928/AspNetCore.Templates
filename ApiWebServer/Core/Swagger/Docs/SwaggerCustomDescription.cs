@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace ApiWebServer.Core.Swagger.Docs
+namespace ApiServer.Core.Swagger.Docs
 {
     public static class SwaggerCustomDescription
     {

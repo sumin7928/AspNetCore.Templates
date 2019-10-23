@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 
-namespace ApiWebServer.Database
+namespace ApiServer.Database
 {
     public class SampleDB
     {

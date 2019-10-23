@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 
-namespace ApiWebServer.Core.Middleware
+namespace ApiServer.Core.Middleware
 {
     public static class MiddlewareExtendApplication
     {

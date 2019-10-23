@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace ApiWebServer.Controllers.Template1_Controllers
+namespace ApiServer.Controllers.Template1_Controllers
 {
     [Route("api/Template1/[controller]")]
     [ApiController]

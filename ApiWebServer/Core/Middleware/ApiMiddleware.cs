@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ApiWebServer.Core.Middleware
+namespace ApiServer.Core.Middleware
 {
     public class ApiMiddleware
     {

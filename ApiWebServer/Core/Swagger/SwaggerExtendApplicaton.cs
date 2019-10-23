@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using ApiWebServer.Core.Swagger.Docs;
+using ApiServer.Core.Swagger.Docs;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 
-namespace ApiWebServer.Core.Swagger
+namespace ApiServer.Core.Swagger
 {
     public static class SwaggerExtendApplicaton
     {

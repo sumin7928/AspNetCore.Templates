@@ -9,7 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiWebServer", "ApiWebServer\ApiWebServer.csproj", "{7C68AA6E-4CE6-4B6A-9AB7-10F77DED9465}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiServer", "ApiWebServer\ApiServer.csproj", "{7C68AA6E-4CE6-4B6A-9AB7-10F77DED9465}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRServer", "SignalRServer\SignalRServer.csproj", "{0D876ABC-4149-4ED8-AA0B-517D32EEDE2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{7C68AA6E-4CE6-4B6A-9AB7-10F77DED9465}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C68AA6E-4CE6-4B6A-9AB7-10F77DED9465}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C68AA6E-4CE6-4B6A-9AB7-10F77DED9465}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D876ABC-4149-4ED8-AA0B-517D32EEDE2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D876ABC-4149-4ED8-AA0B-517D32EEDE2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D876ABC-4149-4ED8-AA0B-517D32EEDE2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D876ABC-4149-4ED8-AA0B-517D32EEDE2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ApiWebServer.Core.Swagger;
-using ApiWebServer.Models;
+using ApiServer.Core.Swagger;
+using ApiServer.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ApiWebServer.Controllers
+namespace ApiServer.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

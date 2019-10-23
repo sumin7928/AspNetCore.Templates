@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration.Json;
 using Microsoft.Extensions.Logging;
 using NLog.Web;
 
-namespace ApiWebServer
+namespace ApiServer
 {
     public class Program
     {
