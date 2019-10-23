@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ApiServer.Core.Swagger;
 using ApiServer.Core.Middleware;
 using ApiServer.Core.Cache;
+using ApiServer.Core.DB;
 
 namespace ApiServer
 {
@@ -43,29 +44,33 @@ namespace ApiServer
             // Register memcached
             services.AddMemcached(Configuration);
 
-            // Register Redis
+            // Register redis
             services.AddRedis(Configuration);
+
+            // Register relational db services from connection string
+            services.AddDbService(Configuration);
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseMemcached();
-
-            //app.UseHttpsRedirection();
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseWebInfoMiddleware();
             }
+            else if (env.IsProduction())
+            {
+                app.UseHttpsRedirection();
+            }
 
+            app.UseMemcached();
+            app.UseRedis();
             app.UseCustomSwagger();
-
             app.UseApiMiddleware(exception =>
             {
-                // api controller exception handler processing
+                // api controller exception handler processing such as error notification
             });
             
             app.UseMvc();

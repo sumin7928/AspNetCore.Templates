@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApiServer.Core.DB;
 using ApiServer.Core.Swagger;
 using ApiServer.Models;
+using Dapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,11 +15,22 @@ namespace ApiServer.Controllers
     [ApiController]
     public class ExampleController : ControllerBase
     {
+        private readonly IDbService _dbService;
+
+        public ExampleController(IDbService dbService)
+        {
+            _dbService = dbService;
+        }
+
         [HttpPost]
         [SwaggerDescription("TestController", "임시 테스트 컨트롤러", typeof(TestAccount), null)]
-        public ActionResult Post([FromBody] TestAccount account)
+        public ActionResult<string> Post([FromBody] TestAccount account)
         {
-            return null;
+            using (var conn = _dbService["Game"])
+            {
+                var ttt = conn.Query("SELECT * FROM [dbo].[GT_ACCOUNT]");
+            }
+            return "test";
         }
     }
 }

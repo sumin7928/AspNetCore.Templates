@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Enyim.Caching;
 using Enyim.Caching.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
@@ -20,7 +21,7 @@ namespace ApiServer.Core.Cache
             MemcachedConfig = configuration.GetSection("Redis").Get<MemcachedClientOptions>();
             if (MemcachedConfig == null)
             {
-                Console.WriteLine("Not found memcached configuration");
+                Console.WriteLine("Memcached Configuration: Not found");
                 return services;
             }
 
@@ -36,6 +37,17 @@ namespace ApiServer.Core.Cache
             }
 
             app.UseEnyimMemcached();
+
+            IMemcachedClient client = app.ApplicationServices.GetService<IMemcachedClient>();
+            if (client.Add("test", "value", 5))
+            {
+                Console.WriteLine("EnyimMemcachedClient: Connected");
+            }
+            else
+            {
+                Console.WriteLine("EnyimMemcachedClient: Disconnected");
+            }
+
             return app;
         }
     }

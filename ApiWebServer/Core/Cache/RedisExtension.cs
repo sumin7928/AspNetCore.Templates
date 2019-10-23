@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StackExchange.Redis.Extensions.Core.Configuration;
@@ -13,39 +14,56 @@ namespace ApiServer.Core.Cache
     {
         private static readonly NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
 
+        public static RedisConfiguration RedisConfig { get; private set; }
+
         public static IServiceCollection AddRedis(this IServiceCollection services, IConfiguration configuration)
         {
             // Register redis
-            RedisConfiguration redisConfiguration = configuration.GetSection("Redis").Get<RedisConfiguration>();
-            if (redisConfiguration == null)
+            RedisConfig = configuration.GetSection("Redis").Get<RedisConfiguration>();
+            if (RedisConfig == null)
             {
-                Console.WriteLine("Not found redis configuration");
+                Console.WriteLine("Redis Configuration: Not found");
                 return services;
             }
 
-            if (redisConfiguration.Connection.IsConnected)
+            services.AddStackExchangeRedisExtensions<NewtonsoftSerializer>(RedisConfig);
+            return services;
+        }
+
+        public static IApplicationBuilder UseRedis(this IApplicationBuilder app)
+        {
+            if (RedisConfig == null)
             {
-                Console.WriteLine("StackExchangeRedisCacheClient connected redis servers");
+                return app;
             }
-            redisConfiguration.Connection.ConnectionRestored += (sender, args) =>
+
+            RedisConfig.Connection.ConnectionRestored += (sender, args) =>
             {
                 _logger.Info("Redis connected - {0}, {1}", sender.ToString(), args.EndPoint);
             };
-            redisConfiguration.Connection.ConnectionFailed += (sender, args) =>
+            RedisConfig.Connection.ConnectionFailed += (sender, args) =>
             {
                 _logger.Error(args.Exception, "Failed redis connection - {0}, {1}", sender.ToString(), args.Exception.Message);
             };
-            redisConfiguration.Connection.ErrorMessage += (sender, args) =>
+            RedisConfig.Connection.ErrorMessage += (sender, args) =>
             {
                 _logger.Error("Redis error Message - {0}, {1}", sender.ToString(), args.Message);
             };
-            redisConfiguration.Connection.InternalError += (sender, args) =>
+            RedisConfig.Connection.InternalError += (sender, args) =>
             {
                 _logger.Error(args.Exception, "Redis internal error Message - {0}, {1}", sender.ToString(), args.Origin);
             };
 
-            services.AddStackExchangeRedisExtensions<NewtonsoftSerializer>(redisConfiguration);
-            return services;
+            if (RedisConfig.Connection.IsConnected)
+            {
+                Console.WriteLine("StackExchangeRedisCacheClient: Connected");
+            }
+            else
+            {
+                Console.WriteLine("StackExchangeRedisCacheClient: Disconnected");
+            }
+
+            return app;
         }
     }
 }
