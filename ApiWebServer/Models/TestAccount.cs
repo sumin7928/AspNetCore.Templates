@@ -8,7 +8,7 @@ namespace ApiServer.Models
     /// <summary>
     /// 테스트용 계정 정보
     /// </summary>
-    public class TestAccount
+    public class SampleAccount
     {
         /// <summary>
         /// 계정 시퀀스 넘버

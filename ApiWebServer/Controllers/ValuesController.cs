@@ -39,8 +39,8 @@ namespace ApiServer.Controllers
         /// <param name="id">tttt</param>
         /// <param name="value">value</param>
         [HttpPut("{id}")]
-        [SwaggerDescription(typeof(TestAccount))]
-        public void Put(int id, [FromBody] TestAccount value)
+        [SwaggerDescription(typeof(SampleAccount))]
+        public void Put(int id, [FromBody] SampleAccount value)
         {
         }
 

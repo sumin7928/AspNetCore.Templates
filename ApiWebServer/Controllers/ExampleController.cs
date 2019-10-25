@@ -23,11 +23,12 @@ namespace ApiServer.Controllers
         }
 
         [HttpPost]
-        [SwaggerDescription("TestController", "임시 테스트 컨트롤러", typeof(TestAccount), null)]
-        public ActionResult<string> Post([FromBody] TestAccount account)
+        [SwaggerDescription("TestController", "임시 테스트 컨트롤러", typeof(SampleAccount), null)]
+        public ActionResult<string> Post([FromBody] SampleAccount account)
         {
             using (var conn = _dbService["Game"])
             {
+                //var tt = conn.BeginTransaction();
                 var ttt = conn.Query("SELECT * FROM [dbo].[GT_ACCOUNT]");
             }
             return "test";

@@ -44,7 +44,6 @@
 
   <ItemGroup>
     <Folder Include="Controllers\Template2_Controllers\" />
-    <Folder Include="Models\Dao\" />
     <Folder Include="Utils\" />
   </ItemGroup>
 
