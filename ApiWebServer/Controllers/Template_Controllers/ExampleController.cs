@@ -21,14 +21,12 @@ namespace ApiServer.Controllers.Template_Controllers
     {
         private readonly ILogger<ExampleController> _logger;
         private readonly IConfiguration _config;
-        private readonly IDbService _dbService;
 
 
-        public ExampleController(ILogger<ExampleController> logger, IConfiguration config, IDbService dbService)
+        public ExampleController(ILogger<ExampleController> logger, IConfiguration config)
         {
             _logger = logger;
             _config = config;
-            _dbService = dbService;
         }
 
         [HttpPost("Sample1")]
@@ -37,7 +35,7 @@ namespace ApiServer.Controllers.Template_Controllers
         public ActionResult<SampleResult> SampleApi([FromBody] SampleAccount account)
         {
             // api call unique sequence
-            long requestNo = (long)HttpContext.Items["ResultNo"];
+            long requestNo = (long)HttpContext.Items["RequestNo"];
             _logger.LogInformation($"[{requestNo}] start api controller...");
 
             // db process
@@ -61,7 +59,7 @@ namespace ApiServer.Controllers.Template_Controllers
         public ActionResult<SampleResult> Update([FromBody] SampleAccount account)
         {
             // api call unique sequence
-            long requestNo = (long)HttpContext.Items["ResultNo"];
+            long requestNo = (long)HttpContext.Items["RequestNo"];
             _logger.LogInformation($"[{requestNo}] start api controller...");
 
             // db process
