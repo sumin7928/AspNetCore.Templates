@@ -18,14 +18,14 @@ namespace ApiServer
         {
             Configuration = configuration;
 
-            // Show appsetting config data
-            foreach (var config in Configuration.AsEnumerable())
-            {
-                if (config.Value != null && config.Value != string.Empty)
-                {
-                    Console.WriteLine($"[AppSettings] {config.Key} - {config.Value}");
-                }
-            }
+            //// Show appsetting config data
+            //foreach (var config in Configuration.AsEnumerable())
+            //{
+            //    if (config.Value != null && config.Value != string.Empty)
+            //    {
+            //        Console.WriteLine($"[AppSettings] {config.Key} - {config.Value}");
+            //    }
+            //}
         }
 
         public IConfiguration Configuration { get; }
@@ -35,11 +35,11 @@ namespace ApiServer
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            // Register custom swagger
+            services.AddCustomSwaggerGen();
+
             // Register configuration
             services.AddSingleton(Configuration);
-
-            // Register custom swagger
-            services.AddCustomSwaggerGen(Configuration);
 
             // Register memcached
             services.AddMemcached(Configuration);
@@ -55,21 +55,25 @@ namespace ApiServer
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            if (env.IsProduction())
+            {
+                app.UseHttpsRedirection();
+            }
+            else
+            {
+                app.UseCustomSwagger();
+
+                if (env.IsDevelopment())
+                {
+                    app.UseDeveloperExceptionPage();
+                    app.UseWebInfoMiddleware();
+                }
+            }
+
             app.UseMemcached();
 
             app.UseRedis();
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseWebInfoMiddleware();
-            }
-            else if (env.IsProduction())
-            {
-                app.UseHttpsRedirection();
-            }
-
-            app.UseCustomSwagger();
             app.UseApiMiddleware(exception =>
             {
                 // api controller exception handler processing such as error notification

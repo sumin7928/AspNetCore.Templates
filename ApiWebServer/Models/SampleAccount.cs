@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 namespace ApiServer.Models
 {
     /// <summary>
-    /// 테스트용 계정 정보
+    /// sample api account info
     /// </summary>
     public class SampleAccount
     {
         /// <summary>
-        /// 계정 시퀀스 넘버
+        /// account sequence no
         /// </summary>
         public int SeqNo { get; set; }
         /// <summary>
-        /// 계정 아이디
+        /// account id
         /// </summary>
         public string AccountId { get; set; }
         /// <summary>
-        /// 계정 비번
+        /// account password
         /// </summary>
         public string Password { get; set; }
     }

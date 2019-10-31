@@ -14,30 +14,21 @@ namespace ApiServer.Core.Swagger
     {
         public SwaggerDescriptionAttribute(Type requestBody = null, Type responseBody = null)
         {
-            SetDetails(null, null, null, requestBody, responseBody);
+            SetDetails(null, null, requestBody, responseBody);
         }
 
-        public SwaggerDescriptionAttribute(string tagName, Type requestBody = null, Type responseBody = null)
+        public SwaggerDescriptionAttribute(string summary, Type requestBody = null, Type responseBody = null)
         {
-            SetDetails(tagName, null, null, requestBody, responseBody);
+            SetDetails(summary, null, requestBody, responseBody);
         }
 
-        public SwaggerDescriptionAttribute(string tagName, string summary, Type requestBody = null, Type responseBody = null)
+        public SwaggerDescriptionAttribute(string summary, string description, Type requestBody = null, Type responseBody = null)
         {
-            SetDetails(tagName, summary, null, requestBody, responseBody);
+            SetDetails(summary, description, requestBody, responseBody);
         }
 
-        public SwaggerDescriptionAttribute(string tagName, string summary, string description, Type requestBody = null, Type responseBody = null)
+        private void SetDetails(string summary, string description, Type requestBody = null, Type responseBody = null)
         {
-            SetDetails(tagName, summary, description, requestBody, responseBody);
-        }
-
-        private void SetDetails(string tagName, string summary, string description, Type requestBody = null, Type responseBody = null)
-        {
-            if (tagName != null)
-            {
-                Tags = new[] { tagName };
-            }
             if (summary != null)
             {
                 Summary = summary;
@@ -73,7 +64,7 @@ namespace ApiServer.Core.Swagger
 
         private static StringBuilder MakeTableDescription(Type type, StringBuilder sb)
         {
-            sb.AppendLine($"## {type.FullName} [{SwaggerCustomDescription.GetComments($"{type.FullName}")}] ##");
+            sb.AppendLine($"## {type.FullName} - {SwaggerCustomDescription.GetComments($"{type.FullName}")} ##");
             sb.AppendLine("| Variable Name | Data Type | Data Detail | Description |");
             sb.AppendLine("| --- | --- | --- | --- |");
 

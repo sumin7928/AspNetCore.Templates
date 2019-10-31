@@ -10,7 +10,7 @@ namespace ApiServer.Core.Swagger.Docs
     public static class SwaggerCustomDescription
     {
         private static readonly string xmlDocsFile = "ApiWebServer.xml";
-        private static readonly string[] targetNamespace = new string[] { "ApiWebServer.Models", "ApiWebServer.Controllers" }; 
+        private static readonly string[] targetNamespace = new string[] { "ApiServer.Models", "ApiServer.Controllers" }; 
         private static Dictionary<string, string> comments = new Dictionary<string, string>();
 
         public static void Initialize()

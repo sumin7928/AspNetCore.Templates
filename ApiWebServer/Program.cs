@@ -35,7 +35,7 @@ namespace ApiServer
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            new WebHostBuilder()
+            WebHost.CreateDefaultBuilder(args)
                 .ConfigureAppConfiguration((hostContext, configApp) =>
                 {
                     var env = hostContext.HostingEnvironment;
