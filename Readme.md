@@ -29,10 +29,10 @@ Redis나 Memcached, DB 등을 사용을 위해서는 appsetting.json에 관련된 정보를 넣음�
 #### 예시
 
 Swagger 문서 활용 샘플
-![swagger](./Docs/swagger.png)
+![swagger](./Docs/swagger.PNG)
 
 Logging 처리 샘플
-![log](./Docs/log.png)
+![log](./Docs/log.PNG)
 
 ### SignalRServer (Real Time)
 
